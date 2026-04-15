@@ -33,13 +33,23 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
-
+    implementation("androidx.camera:camera-core:1.1.0-beta01")
+    implementation("androidx.camera:camera-camera2:1.1.0-beta01")
+    implementation("androidx.camera:camera-lifecycle:1.1.0-beta01")
+    implementation("androidx.camera:camera-video:1.1.0-beta01")
+    implementation("androidx.camera:camera-view:1.1.0-beta01")
+    implementation("androidx.camera:camera-extensions:1.1.0-beta01")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
