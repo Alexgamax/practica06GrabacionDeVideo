@@ -35,6 +35,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/vertical_centerline" />
 
+    <Button
+        android:id="@+id/show_media_button"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:elevation="2dp"
+        android:layout_marginBottom="50dp"
+        android:text="Mostrar media"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_capture_button"
+        app:layout_constraintEnd_toStartOf="@id/video_capture_button"/>
+
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_centerline"
         android:layout_width="wrap_content"

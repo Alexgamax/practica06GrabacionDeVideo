@@ -3,6 +3,7 @@ package com.example.practica06grabaciondevideo.main
 
 import android.Manifest
 import android.content.ContentValues
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -21,6 +22,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.core.Preview
 import androidx.camera.core.CameraSelector
 import android.util.Log
+import android.view.View
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
@@ -64,6 +66,9 @@ class MainActivity : AppCompatActivity() {
         // Set up the listeners for take photo and video capture buttons
         viewBinding.imageCaptureButton.setOnClickListener { takePhoto() }
         viewBinding.videoCaptureButton.setOnClickListener { captureVideo() }
+        viewBinding.showMediaButton.setOnClickListener {
+            startActivity(Intent(this, ShowMedia::class.java))
+        }
 
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
@@ -115,6 +120,8 @@ class MainActivity : AppCompatActivity() {
         val videoCapture = this.videoCapture ?: return
 
         viewBinding.videoCaptureButton.isEnabled = false
+        viewBinding.showMediaButton.isEnabled = false
+
 
         val curRecording = recording
         if (curRecording != null) {
@@ -174,6 +181,7 @@ class MainActivity : AppCompatActivity() {
                             text = getString(R.string.start_capture)
                             isEnabled = true
                         }
+                        viewBinding.showMediaButton.isEnabled = true
                     }
                 }
             }
